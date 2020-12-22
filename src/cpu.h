@@ -1,6 +1,8 @@
 #ifndef _CPU_H
 #define _CPU_H
 
+#include <stdint.h>
+
 struct regis {
     uint8_t gregis[16];
     uint16_t I;

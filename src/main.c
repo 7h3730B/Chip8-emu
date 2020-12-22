@@ -1,4 +1,5 @@
 #include <string.h>
+#include <time.h>
 
 #include "memory.h"
 #include "cpu.h"
