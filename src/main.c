@@ -1,4 +1,6 @@
 #include <string.h>
+#include <stdlib.h>
+#include <SDL2/SDL.h>
 #include <time.h>
 
 #include "memory.h"
@@ -16,6 +18,12 @@
 #endif
 
 void init();
+void cycle();
+void draw();
+
+SDL_Event event;
+SDL_Renderer *renderer;
+SDL_Window *window;
 
 int main(int argc, char **argv) {
     if (argc != 2) {
@@ -27,11 +35,19 @@ int main(int argc, char **argv) {
     init();
     load_rom(argv[1]);
 
-    return 0;
+    cycle();
+
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
+    return EXIT_SUCCESS;
 }
 
 void init() {
     LOG("INITING...\n");
+
+    SDL_Init(SDL_INIT_VIDEO);
+    window = SDL_CreateWindow("Chip8", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 64, 32, 0);
 
     // TODO: Implement Font Sprites into Intepreter Ram
     // Set the program counter to 0x200 where the program was loaded
@@ -50,4 +66,16 @@ void init() {
     memset(memory, 0, sizeof(memory));
     memset(stack, 0, sizeof(stack));
     memset(display, 0, sizeof(display));
+}
+
+void cycle() {
+    for (int i = 0; i <= 30; i++) {
+        parse(&memory[regis.PC]);
+        regis.PC += 2;
+        // draw();
+    }
+}
+
+void draw() {
+
 }
