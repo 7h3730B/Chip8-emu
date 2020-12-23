@@ -15,7 +15,6 @@ void parse(uint8_t *opcode) {
     // code = *(opcode + 1) >> 4
     // nnn = (*opcode & 0x0F) << 8 | *(opcode + 1)
 
-    printf("%016x\n", *(opcode + 1) >> 4);
     printf("%04x: %02x %02x\n", regis.PC, *opcode, *(opcode + 1));
     switch(*opcode >> 4) {
         case 0x0:

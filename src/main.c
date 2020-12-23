@@ -31,8 +31,8 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
-    LOG("MAINN......\n");
     init();
+
     load_rom(argv[1]);
 
     cycle();
@@ -44,8 +44,6 @@ int main(int argc, char **argv) {
 }
 
 void init() {
-    LOG("INITING...\n");
-
     SDL_Init(SDL_INIT_VIDEO);
     window = SDL_CreateWindow("Chip8", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 64, 32, 0);
 
