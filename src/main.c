@@ -67,7 +67,8 @@ void init() {
 }
 
 void cycle() {
-    for (int i = 0; i <= 30; i++) {
+    // count down timers!!!
+    for (int i = 0; i <= 300; i++) {
         parse(&memory[regis.PC]);
         regis.PC += 2;
         // draw();
