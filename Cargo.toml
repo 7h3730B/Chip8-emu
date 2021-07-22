@@ -1,0 +1,9 @@
+[package]
+name = "Chip8-emu"
+version = "0.1.0"
+authors = ["7h3730B <56200898+7h3730B@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
